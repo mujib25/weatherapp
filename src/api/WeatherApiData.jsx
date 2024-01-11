@@ -21,10 +21,10 @@ function WeatherApiData() {
       .then((res) => res.json())
       .then((result) => {
         setWeather(result);
+        search!== weather.name ? setCity('City Name Not Found') : city
       })
       
-      {search!== weather.name ? setCity('City Name Not Found!') : ""}
-      
+     
   }
 
   return (
@@ -40,6 +40,7 @@ function WeatherApiData() {
               <div className="mb-3">
                 <div className="">
                   {weather.name}
+                 
                   <img className="mx-auto" src={
                     weather.weather[0].main === "Clouds" ? clouds :
                       weather.weather[0].main === "Clear" ? clear :
@@ -53,6 +54,9 @@ function WeatherApiData() {
                 <h5>{weather.weather[0].description || 'Status Detail'}</h5>
               </div>
             </div>
+             
+             
+      
           ) : (`${city}`)
         }
         <input className="w-full rounded-md text-black p-2 outline-none shadow-2xl border-[12px solid red]" type="text" onChange={(e) => setSearch(e.target.value)} />
@@ -61,6 +65,7 @@ function WeatherApiData() {
         </div>
 
       </div>
+      
     </>
   )
 }
