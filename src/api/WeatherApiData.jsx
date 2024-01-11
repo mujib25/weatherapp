@@ -29,14 +29,14 @@ function WeatherApiData() {
 
   return (
     <>
-      <div className="absolute text-center translate-y-24 mx-2">
+      <div className="absolute text-center translate-y-24 mx-2 w-full ">
         <div className="py-5">
           <h3 className="font-serif font-extrabold text-2xl uppercase">Weather App</h3>
         </div>
 
         {
           typeof weather.main !== "undefined" ? (
-            <div className="bg-orange-400 w-96 p-5 rounded-lg shadow-2xl mb-3">
+            <div className="bg-orange-400 w-80 mx-auto p-5 rounded-lg shadow-2xl mb-3">
               <div className="mb-3">
                 <div className="">
                   {weather.name}
@@ -59,11 +59,12 @@ function WeatherApiData() {
       
           ) : (`${city}`)
         }
+        <div className="w-80 mx-auto">
         <input className="w-full rounded-md text-black p-2 outline-none shadow-2xl border-[12px solid red]" type="text" onChange={(e) => setSearch(e.target.value)} />
         <div className="button-div">
           <button className="bg-gray-950 w-full rounded-md py-2 my-2" onClick={searchPressed}>Search</button>
         </div>
-
+        </div>
       </div>
       
     </>
