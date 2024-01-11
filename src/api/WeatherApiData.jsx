@@ -22,13 +22,14 @@ function WeatherApiData() {
       .then((result) => {
         setWeather(result);
       })
+      
       {search!== weather.name ? setCity('City Name Not Found!') : ""}
       
   }
 
   return (
     <>
-      <div className="absolute text-center translate-y-24">
+      <div className="absolute text-center translate-y-24 mx-2">
         <div className="py-5">
           <h3 className="font-serif font-extrabold text-2xl uppercase">Weather App</h3>
         </div>
