@@ -12,7 +12,7 @@ const api = {
 
 function WeatherApiData() {
 
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('Balakot')
   const [weather, setWeather] = useState("")
   const [city, setCity] = useState("Enter The City Name")
 
@@ -21,6 +21,7 @@ function WeatherApiData() {
       .then((res) => res.json())
       .then((result) => {
         setWeather(result);
+        setSearch(search)
         search!== weather.name ? setCity('City Name Not Found') : city
       })
       
@@ -31,7 +32,7 @@ function WeatherApiData() {
     <>
       <div className="absolute text-center translate-y-24 mx-2 w-full ">
         <div className="py-5">
-          <h3 className="font-serif font-extrabold text-2xl uppercase">Weather App</h3>
+          <h3 className="font-serif font-extrabold text-2xl uppercase tracking-widest">{weather.name|| 'Weather App'}</h3>
         </div>
 
         {
