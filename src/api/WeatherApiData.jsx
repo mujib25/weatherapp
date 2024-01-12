@@ -78,7 +78,7 @@ function WeatherApiData() {
         <div className="w-80 mx-auto">
         <input className="w-full rounded-md text-black p-2 outline-none shadow-2xl border-[12px solid red]" type="text" onChange={(e) => setSearch(e.target.value)} />
         <div className="button-div">
-          <button className="bg-gray-950 w-full rounded-md py-2 my-2" onClick={searchPressed}>Search</button>
+          <button className="bg-gray-950 w-full rounded-md py-2 my-2 hover:bg-orange-600 ease-in duration-300" onClick={searchPressed}>Search</button>
         </div>
         </div>
       </div>
