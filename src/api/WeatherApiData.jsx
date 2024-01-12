@@ -1,9 +1,9 @@
 import { useState } from "react"
-import partlyCloud from '../assets/icons/partlycloud.png'
-import clouds from '../assets/icons/clouds.png'
-import clear from '../assets/icons/clear.png'
-import rain from '../assets/icons/rain.png'
-import snow from '../assets/icons/snow.png'
+// import partlyCloud from '../assets/icons/partlycloud.png'
+// import clouds from '../assets/icons/clouds.png'
+// import clear from '../assets/icons/clear.png'
+// import rain from '../assets/icons/rain.png'
+// import snow from '../assets/icons/snow.png'
 import backClouds from '../assets/images/clouds.webp'
 import backClear from '../assets/images/clear.jpg'
 import backSnow from '../assets/images/snow.webp'
@@ -52,15 +52,18 @@ function WeatherApiData() {
             }}>
               <div className="mb-3">
                 <div className="">
-                 <h3 className='`${weather.weather[0].main==="Clouds"} ? text-black : text-white` font-bold'> {weather.name}</h3>
+                 <h3 className='`${weather.weather[0].main==="Clouds"} ? text-black : text-white` font-bold'> {weather.name} , {weather.sys.country} </h3>
+                 
+
                  <div className="bg-purple-500 opacity-75 rounded-md p-2">
-                  <img className="mx-auto" src={
+                  {/* <img className="mx-auto" src={
                     weather.weather[0].main === "Clouds" ? clouds :
                       weather.weather[0].main === "Clear" ? clear :
                         weather.weather[0].main === "Rain" ? rain :
                           weather.weather[0].main === "Partly Clouds" ? partlyCloud :
                             weather.weather[0].main === "Snow" ? snow : ''
-                  } alt="" />
+                  } alt="" /> */}
+                  <img className="mx-auto" src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt="Weather Icon" />
                 
 
                 <h3 className='`${weather.weather[0].main==="Clouds"} ? text-black : text-white ` font-bold'>{weather.main.temp} <sup>o</sup>F</h3>
