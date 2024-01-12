@@ -19,8 +19,7 @@ function WeatherApiData() {
   const [search, setSearch] = useState('Balakot')
   const [weather, setWeather] = useState("")
   const [city, setCity] = useState("Enter The City Name")
-
-
+ 
   const searchPressed = () => {
     fetch(`${api.url}weather?q=${search}&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
@@ -55,7 +54,7 @@ function WeatherApiData() {
                  <h3 className='`${weather.weather[0].main==="Clouds"} ? text-black : text-white` font-bold'> {weather.name} , {weather.sys.country} </h3>
                  
 
-                 <div className="bg-purple-500 opacity-75 rounded-md p-2">
+                 <div className="bg-black opacity-75 rounded-md p-2">
                   {/* <img className="mx-auto" src={
                     weather.weather[0].main === "Clouds" ? clouds :
                       weather.weather[0].main === "Clear" ? clear :
