@@ -18,14 +18,31 @@ function WeatherApiData() {
 
   const [search, setSearch] = useState('Balakot')
   const [weather, setWeather] = useState("")
+  const [start, setStart] = useState("")
+  const [end, setEnd] = useState("")
   const [city, setCity] = useState("Enter The City Name")
+
+  function currentDate(start) {
+    const myDate = new Date()
+    start =(myDate.getDate() + "-" + myDate.getMonth()+1 + "" + "-" + myDate.getFullYear());
+    return start
+   }
+   function previousDate(end) {
+    const myDate = new Date()
+    myDate.setDate(myDate.getDate() - 7);
+    myDate.setMonth(myDate.getMonth()); 
+    end = (myDate.getDate() + "-" + myDate.getMonth()+1 + "" + "-" + myDate.getFullYear());
+    return end
+    }
  
   const searchPressed = () => {
-    fetch(`${api.url}weather?q=${search}&units=metric&APPID=${api.key}`)
+    fetch(`${api.url}weather?q=${search}&units=metric&&start=${start}&end=${end}&APPID=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
         setWeather(result);
         setSearch(search)
+        setStart(currentDate)
+        setEnd(previousDate)
         search!== weather.name ? setCity('City Name Not Found') : city
       })
       
@@ -52,7 +69,7 @@ function WeatherApiData() {
               <div className="mb-3">
                 <div className="">
                  <h3 className='`${weather.weather[0].main==="Clouds"} ? text-black : text-white` font-bold'> {weather.name} , {weather.sys.country} </h3>
-                 
+                 <h3 className="text-black"> {end} {start}</h3>
 
                  <div className="bg-black opacity-75 rounded-md p-2">
                   {/* <img className="mx-auto" src={
