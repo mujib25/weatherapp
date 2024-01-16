@@ -9,9 +9,11 @@ import backClear from '../assets/images/clear.jpg'
 import backSnow from '../assets/images/snow.webp'
 import backRain from '../assets/images/rain.jpg'
 
+
 const api = {
-  key: "c17e5fb23fca9740b13943342b34aef5",
+  key: "266a54248d06c8540ad5f9b34ec4328f",
   url: "https://api.openweathermap.org/data/2.5/"
+  // url:"https://history.openweathermap.org/data/2.5/history/"
 }
 
 function WeatherApiData() {
@@ -34,11 +36,14 @@ function WeatherApiData() {
     end = (myDate.getDate() + "-" + myDate.getMonth()+1 + "" + "-" + myDate.getFullYear());
     return end
     }
+    
  
   const searchPressed = () => {
-    fetch(`${api.url}weather?q=${search}&units=metric&&start=${start}&end=${end}&APPID=${api.key}`)
+    // fetch(`${api.url}weather?q=${search}&units=metric&&start=${start}&end=${end}&APPID=${api.key}`)
+    fetch(`${api.url}?q=${search}&start=${start}&end=${end}&appid=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         setWeather(result);
         setSearch(search)
         setStart(currentDate)
