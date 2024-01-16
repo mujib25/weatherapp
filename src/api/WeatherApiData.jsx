@@ -39,8 +39,8 @@ function WeatherApiData() {
     
  
   const searchPressed = () => {
-    // fetch(`${api.url}weather?q=${search}&units=metric&&start=${start}&end=${end}&APPID=${api.key}`)
-    fetch(`${api.url}?q=${search}&start=${start}&end=${end}&appid=${api.key}`)
+     fetch(`${api.url}weather?q=${search}&units=metric&&start=${start}&end=${end}&APPID=${api.key}`)
+    // fetch(`${api.url}?q=${search}&start=${start}&end=${end}&appid=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
